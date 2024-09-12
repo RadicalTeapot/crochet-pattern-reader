@@ -1,0 +1,100 @@
+{
+    "projects":[
+        {
+            "name": "Amigurumi Ball",
+            "pattern": [
+                {"type": "instruction", "instruction": "Start with a magic circle."},
+                {"type": "round", "stitches": [
+                    {"type": "stitch", "name": "sc", "count": 6, "countModifier": 1}
+                ], "instruction": "in magic circle"},
+                {"type": "round", "stitches": [
+                    {"type": "repeat", "count": 6, "stitches": [
+                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 1}
+                    ]}
+                ]},
+                {"type": "round", "stitches": [
+                    {"type": "repeat", "count": 6, "stitches": [
+                        {"type": "stitch", "name": "sc", "count": 1},
+                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 1}
+                    ]}
+                ]},
+                {"type": "round", "stitches": [
+                    {"type": "stitch", "name": "sc", "count": 1},
+                    {"type": "stitch", "name": "inc", "count": 1, "countModifier": 1},
+                    {"type": "repeat", "count": 5, "stitches": [
+                        {"type": "stitch", "name": "sc", "count": 2},
+                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 1}
+                    ]},
+                    {"type": "stitch", "name": "sc", "count": 1}
+                ]},
+                {"type": "round", "stitches": [
+                    {"type": "repeat", "count": 6, "stitches": [
+                        {"type": "stitch", "name": "sc", "count": 3},
+                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 1}
+                    ]}
+                ]},
+                {"type": "round", "stitches": [
+                    {"type": "stitch", "name": "sc", "count": -1}
+                ], "instruction": "sc in all sts"},
+                {"type": "round", "stitches": [
+                    {"type": "stitch", "name": "sc", "count": -1}
+                ], "instruction": "sc in all sts"},
+                {"type": "round", "stitches": [
+                    {"type": "stitch", "name": "sc", "count": 2},
+                    {"type": "stitch", "name": "inc", "count": 1, "countModifier": 1},
+                    {"type": "repeat", "count": 5, "stitches": [
+                        {"type": "stitch", "name": "sc", "count": 4},
+                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 1}
+                    ]},
+                    {"type": "stitch", "name": "sc", "count": 2}
+                ]},
+                {"type": "round", "stitches": [
+                    {"type": "stitch", "name": "sc", "count": -1}
+                ], "instruction": "sc in all sts"},
+                {"type": "round", "stitches": [
+                    {"type": "stitch", "name": "sc", "count": -1}
+                ], "instruction": "sc in all sts"},
+                {"type": "round", "stitches": [
+                    {"type": "stitch", "name": "sc", "count": -1}
+                ], "instruction": "sc in all sts"},
+                {"type": "round", "stitches": [
+                    {"type": "stitch", "name": "sc", "count": 2},
+                    {"type": "stitch", "name": "dec", "count": 1, "countModifier": -1},
+                    {"type": "repeat", "count": 5, "stitches": [
+                        {"type": "stitch", "name": "sc", "count": 4},
+                        {"type": "stitch", "name": "dec", "count": 1, "countModifier": -1}
+                    ]},
+                    {"type": "stitch", "name": "sc", "count": 2}
+                ]},
+                {"type": "round", "stitches": [
+                    {"type": "stitch", "name": "sc", "count": -1}
+                ], "instruction": "sc in all sts"},
+                {"type": "round", "stitches": [
+                    {"type": "stitch", "name": "sc", "count": -1}
+                ], "instruction": "sc in all sts"},
+                {"type": "round", "stitches": [
+                    {"type": "repeat", "count": 6, "stitches": [
+                        {"type": "stitch", "name": "sc", "count": 3},
+                        {"type": "stitch", "name": "dec", "count": 1, "countModifier": -1}
+                    ]}
+                ]},
+                {"type": "round", "stitches": [
+                    {"type": "stitch", "name": "sc", "count": 1},
+                    {"type": "stitch", "name": "dec", "count": 1, "countModifier": -1},
+                    {"type": "repeat", "count": 5, "stitches": [
+                        {"type": "stitch", "name": "sc", "count": 2},
+                        {"type": "stitch", "name": "dec", "count": 1, "countModifier": -1}
+                    ]},
+                    {"type": "stitch", "name": "sc", "count": 1}
+                ]},
+                {"type": "round", "stitches": [
+                    {"type": "repeat", "count": 6, "stitches": [
+                        {"type": "stitch", "name": "sc", "count": 1},
+                        {"type": "stitch", "name": "dec", "count": 1, "countModifier": -1}
+                    ]}
+                ]},
+                {"type": "instruction", "instruction": "Fasten off, stuff fully, close hole and weave tails in."}
+            ]
+        }
+    ]
+}

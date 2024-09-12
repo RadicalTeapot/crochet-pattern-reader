@@ -1,0 +1,14 @@
+{
+    "type": "module",
+    "name": "crochet-pattern-reader",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "run": "node index.js data/patterns.json"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": ""
+}
