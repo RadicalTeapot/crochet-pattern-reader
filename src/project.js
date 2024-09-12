@@ -1,4 +1,4 @@
-import { parseRound } from './round.js';
+import { Round, parseRound } from './round.js';
 import { parseInstruction } from './instruction.js';
 import { StitchCounter } from './stitch-counter.js';
 
@@ -9,11 +9,26 @@ export function Project(data, pattern) {
     }
 
     this.name = data.name;
-    this.pattern = pattern;
+
+    this._pattern = pattern;
+    this._rounds = this._pattern.filter(p => p instanceof Round);
+    this._totalStitches = this._rounds.reduce((a, b) => a + b.stitches.length, 0);
 }
 Object.assign(Project.prototype, {
     toString: function() {
         return `Project: ${this.name}`;
+    },
+    getRoundsCount: function() {
+        return this._rounds.length;
+    },
+    getStitchesCount: function() {
+        return this._totalStitches;
+    },
+    getRoundStitchesCount: function(index) {
+        return this._rounds[index].stitches.length;
+    },
+    getRoundStitch: function(roundIndex, stitchIndex) {
+        return this._rounds[roundIndex].stitches[stitchIndex];
     }
 })
 
