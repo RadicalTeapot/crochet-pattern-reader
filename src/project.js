@@ -57,14 +57,14 @@ export function parseProject(data) {
 
 export function ProjectView() {
     this.project = null;
-    this.progress = null;
+    this.currentRoundIndex = 0;
     this.roundCounter = 0;
     this.lines = [];
 }
 Object.assign(ProjectView.prototype, {
     toString: function() {
         const patternString = this.lines.map(line => {
-            const indent = this.progress && this.progress.currentRoundIndex === line.index ? '->' : '  ';
+            const indent = this.currentRoundIndex === line.index ? '->' : '  ';
             const separator = '-';
             const lineElements = [indent];
             if (line.index !== undefined) {
@@ -82,8 +82,8 @@ Object.assign(ProjectView.prototype, {
     setProject: function(project) {
         this.project = project;
     },
-    setProgress: function(progress) {
-        this.progress = progress;
+    setCurrentRoundIndex: function(currentRoundIndex) {
+        this.currentRoundIndex = currentRoundIndex;
     },
     addRound: function(round) {
         const roundIndex = this.roundCounter++;
