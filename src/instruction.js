@@ -1,20 +1,19 @@
 export function Instruction(instruction) {
-    if (instruction === '') {
-        console.error(`Invalid instruction ${instruction}`);
-        return null;
+    const trimmed = instruction.trim();
+
+    if (trimmed === '') {
+        throw new Error(`Invalid instruction ${instruction}`);
     }
-    this.instruction = instruction;
+    this.instruction = trimmed;
 }
-Object.assign(Instruction.prototype, {
-    toString: function() {
-        return this.instruction;
-    }
-});
 
 export function parseInstruction(data) {
+    if (!data || !data.instruction || !data.type) {
+        throw new Error('Invalid instruction');
+    }
+
     if (data.type !== 'instruction') {
-        console.error(`Invalid instruction type ${data}`);
-        return null;
+        throw new Error(`Invalid instruction type ${data.type}`);
     }
     return new Instruction(data.instruction);
 }
