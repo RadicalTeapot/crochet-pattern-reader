@@ -1,11 +1,4 @@
-export function Instruction(instruction) {
-    const trimmed = instruction.trim();
-
-    if (trimmed === '') {
-        throw new Error(`Invalid instruction ${instruction}`);
-    }
-    this.instruction = trimmed;
-}
+import { Instruction } from "../models/instruction";
 
 export function parseInstruction(data) {
     if (!data || !data.instruction || !data.type) {

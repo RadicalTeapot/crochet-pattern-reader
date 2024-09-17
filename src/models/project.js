@@ -1,6 +1,4 @@
 import { Round } from './round.js';
-import { RoundParser } from './round-parser.js';
-import { parseInstruction } from './instruction.js';
 
 export function Project(name, pattern) {
     const trimmedName = name.trim();
@@ -77,44 +75,3 @@ Object.assign(Project.prototype, {
         return this._pattern[lineIndex] instanceof Round;
     }
 })
-
-export function parseProject(data) {
-    if (!data || !data.pattern) {
-        throw new Error('Invalid project');
-    }
-
-    const roundParser = new RoundParser();
-
-    const pattern = data.pattern.map(d => {
-        switch (d.type) {
-            case 'round':
-                return roundParser.parseRound(d);
-            case 'instruction':
-                return parseInstruction(d);
-            default:
-                throw new Error(`Invalid type ${d.type} found in project ${data}`);
-        }
-    }, []);
-    const project = new Project(data.name, pattern);
-
-    return project;
-}
-
-export const ProjectView = {
-    toString: function(project, currentRoundIndex) {
-        let roundIndex = 0;
-        const patternString = Array(project.getPatternLength()).fill(0).map((_, index) => {
-            const line = this.project.getPatternLine(index);
-            const indent = project.getPatternLineFromRoundIndex(currentRoundIndex) === index ? '->' : '  ';
-            const separator = '-';
-            const lineElements = [indent];
-            if (project.isLineARound(index)) {
-                lineElements.push(`${roundIndex}`);
-                lineElements.push(`${separator}`);
-            }
-            lineElements.push(`${line.toString()}`);
-            return lineElements.join(' ');
-        }).join('\n');
-        return `${this.project.toString()}\n${patternString}`;
-    },
-};
