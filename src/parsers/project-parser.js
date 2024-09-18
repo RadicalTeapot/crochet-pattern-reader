@@ -1,5 +1,6 @@
-import { Project } from "../models/project";
-import { RoundParser } from "./round-parser";
+import { Project } from '../models/project.js';
+import { RoundParser } from '../parsers/round-parser.js';
+import { parseInstruction } from '../parsers/instruction-parser.js';
 
 export function parseProject(data) {
     if (!data || !data.pattern) {
@@ -22,5 +23,3 @@ export function parseProject(data) {
 
     return project;
 }
-
-
