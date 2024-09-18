@@ -2,7 +2,7 @@ import fs from 'fs';
 import { parseProject } from './src/project.js';
 import { ProgressManager } from './src/progress.js';
 
-// Read path from cli argument - If no argument is provided, read from stdin
+// Read command line arguments
 const path = process.argv[2] || '';
 if (!path) {
     console.error('No path provided');
@@ -17,9 +17,10 @@ if (!fs.existsSync(path)) {
 const contents = fs.readFileSync(path, 'utf8');
 const json = JSON.parse(contents);
 
-const projects = json.projects.map(parseProject);
+const projects = json.projects
+    .map(parseProject)
+    .filter(p => p); // Skip empty projects
 const progressManager = new ProgressManager(projects[0].project);
-progressManager.setProgress(13, 0);
 projects[0].view.setCurrentRoundIndex(progressManager.progress.currentRoundIndex);
 console.log(projects[0].view.toString());
 console.log();

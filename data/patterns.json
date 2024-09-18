@@ -5,95 +5,159 @@
             "pattern": [
                 {"type": "instruction", "instruction": "Start with a magic circle."},
                 {"type": "round", "stitches": [
-                    {"type": "stitch", "name": "sc", "count": 6, "countModifier": 1}
+                    {"type": "stitch", "name": "sc", "count": 6}
                 ], "instruction": "in magic circle"},
                 {"type": "round", "stitches": [
                     {"type": "repeat", "count": 6, "stitches": [
-                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 1}
+                        {"type": "stitch", "name": "inc", "count": 1}
                     ]}
                 ]},
                 {"type": "round", "stitches": [
                     {"type": "repeat", "count": 6, "stitches": [
                         {"type": "stitch", "name": "sc", "count": 1},
-                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 1}
+                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 2}
                     ]}
                 ]},
                 {"type": "round", "stitches": [
                     {"type": "stitch", "name": "sc", "count": 1},
-                    {"type": "stitch", "name": "inc", "count": 1, "countModifier": 1},
+                    {"type": "stitch", "name": "inc", "count": 1, "countModifier": 2},
                     {"type": "repeat", "count": 5, "stitches": [
                         {"type": "stitch", "name": "sc", "count": 2},
-                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 1}
+                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 2}
                     ]},
                     {"type": "stitch", "name": "sc", "count": 1}
                 ]},
                 {"type": "round", "stitches": [
                     {"type": "repeat", "count": 6, "stitches": [
                         {"type": "stitch", "name": "sc", "count": 3},
-                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 1}
+                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 2}
                     ]}
                 ]},
                 {"type": "round", "stitches": [
-                    {"type": "stitch", "name": "sc", "count": -1}
+                    {"type": "stitch", "name": "sc", "count": 0}
                 ], "instruction": "sc in all sts"},
                 {"type": "round", "stitches": [
-                    {"type": "stitch", "name": "sc", "count": -1}
+                    {"type": "stitch", "name": "sc", "count": 0}
                 ], "instruction": "sc in all sts"},
                 {"type": "round", "stitches": [
                     {"type": "stitch", "name": "sc", "count": 2},
-                    {"type": "stitch", "name": "inc", "count": 1, "countModifier": 1},
+                    {"type": "stitch", "name": "inc", "count": 1, "countModifier": 2},
                     {"type": "repeat", "count": 5, "stitches": [
                         {"type": "stitch", "name": "sc", "count": 4},
-                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 1}
+                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 2}
                     ]},
                     {"type": "stitch", "name": "sc", "count": 2}
                 ]},
                 {"type": "round", "stitches": [
-                    {"type": "stitch", "name": "sc", "count": -1}
+                    {"type": "stitch", "name": "sc", "count": 0}
                 ], "instruction": "sc in all sts"},
                 {"type": "round", "stitches": [
-                    {"type": "stitch", "name": "sc", "count": -1}
+                    {"type": "stitch", "name": "sc", "count": 0}
                 ], "instruction": "sc in all sts"},
                 {"type": "round", "stitches": [
-                    {"type": "stitch", "name": "sc", "count": -1}
+                    {"type": "stitch", "name": "sc", "count": 0}
                 ], "instruction": "sc in all sts"},
                 {"type": "round", "stitches": [
                     {"type": "stitch", "name": "sc", "count": 2},
-                    {"type": "stitch", "name": "dec", "count": 1, "countModifier": -1},
+                    {"type": "stitch", "name": "dec", "count": 1},
                     {"type": "repeat", "count": 5, "stitches": [
                         {"type": "stitch", "name": "sc", "count": 4},
-                        {"type": "stitch", "name": "dec", "count": 1, "countModifier": -1}
+                        {"type": "stitch", "name": "dec", "count": 1}
                     ]},
                     {"type": "stitch", "name": "sc", "count": 2}
                 ]},
                 {"type": "round", "stitches": [
-                    {"type": "stitch", "name": "sc", "count": -1}
+                    {"type": "stitch", "name": "sc", "count": 0}
                 ], "instruction": "sc in all sts"},
                 {"type": "round", "stitches": [
-                    {"type": "stitch", "name": "sc", "count": -1}
+                    {"type": "stitch", "name": "sc", "count": 0}
                 ], "instruction": "sc in all sts"},
                 {"type": "round", "stitches": [
                     {"type": "repeat", "count": 6, "stitches": [
                         {"type": "stitch", "name": "sc", "count": 3},
-                        {"type": "stitch", "name": "dec", "count": 1, "countModifier": -1}
+                        {"type": "stitch", "name": "dec", "count": 1}
                     ]}
                 ]},
                 {"type": "round", "stitches": [
                     {"type": "stitch", "name": "sc", "count": 1},
-                    {"type": "stitch", "name": "dec", "count": 1, "countModifier": -1},
+                    {"type": "stitch", "name": "dec", "count": 1},
                     {"type": "repeat", "count": 5, "stitches": [
                         {"type": "stitch", "name": "sc", "count": 2},
-                        {"type": "stitch", "name": "dec", "count": 1, "countModifier": -1}
+                        {"type": "stitch", "name": "dec", "count": 1}
                     ]},
                     {"type": "stitch", "name": "sc", "count": 1}
                 ]},
                 {"type": "round", "stitches": [
                     {"type": "repeat", "count": 6, "stitches": [
                         {"type": "stitch", "name": "sc", "count": 1},
-                        {"type": "stitch", "name": "dec", "count": 1, "countModifier": -1}
+                        {"type": "stitch", "name": "dec", "count": 1}
                     ]}
                 ]},
                 {"type": "instruction", "instruction": "Fasten off, stuff fully, close hole and weave tails in."}
+            ]
+        },
+        {
+            "name": "Amigurumi star",
+            "source": "https://amiamour.com/star-amigurumi-crochet-pattern-free/",
+            "pattern": [
+                {"type": "instruction", "instruction": "Start with a magic circle."},
+                {"type": "round", "stitches": [
+                    {"type": "stitch", "name": "sc", "count": 6}
+                ], "instruction": "in magic circle"},
+                {"type": "round", "stitches": [
+                    {"type": "repeat", "count": 6, "stitches": [
+                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 2}
+                    ]}
+                ]},
+                {"type": "round", "stitches": [
+                    {"type": "repeat", "count": 6, "stitches": [
+                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 2}
+                        {"type": "stitch", "name": "sc", "count": 1},
+                    ]}
+                ]},
+                {"type": "round", "stitches": [
+                    {"type": "repeat", "count": 6, "stitches": [
+                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 2}
+                        {"type": "stitch", "name": "sc", "count": 2},
+                    ]}
+                ]},
+                {"type": "round", "stitches": [
+                    {"type": "repeat", "count": 6, "stitches": [
+                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 2}
+                        {"type": "stitch", "name": "sc", "count": 3}
+                    ]}
+                ]},
+                {"type": "instruction", "instruction": "Now for the Star Points, we will start working in rows"}
+                {"type": "row", "stitches": [
+                    {"type": "stitch", "name": "sc", "count": 6}
+                ], "instruction": "Sc in next 6 sts only"},
+                {"type": "row", "stitches": [
+                    {"type": "stitch", "name": "ch", "count": 1},
+                    {"type": "instruction", "instruction": "Turn"},
+                    {"type": "instruction", "instruction": "Skip first sc"},
+                    {"type": "stitch", "name": "sc", "count": 5, "instruction": "sc in next 5 sts"}
+                ]},
+                {"type": "row", "stitches": [
+                    {"type": "stitch", "name": "ch", "count": 1},
+                    {"type": "instruction", "instruction": "Turn"},
+                    {"type": "instruction", "instruction": "Skip first sc"},
+                    {"type": "stitch", "name": "sc", "count": 4, "instruction": "sc in next 4 sts"}
+                ]},
+                {"type": "row", "stitches": [
+                    {"type": "stitch", "name": "ch", "count": 1},
+                    {"type": "instruction", "instruction": "Turn"},
+                    {"type": "instruction", "instruction": "Skip first sc"},
+                    {"type": "stitch", "name": "sc", "count": 3, "instruction": "sc in next 3 sts"}
+                ]},
+                {"type": "row", "stitches": [
+                    {"type": "stitch", "name": "ch", "count": 1},
+                    {"type": "instruction", "instruction": "Turn"},
+                    {"type": "instruction", "instruction": "Skip first sc"},
+                    {"type": "stitch", "name": "sc", "count": 2, "instruction": "sc in next 2 sts"}
+                ]},
+                {"type": "instruction", "instruction": "We will single crochet back down the side of the star point to get back down to the circle area. It should take about 5 sts."},
+                {"type": "instruction", "instruction": "Repeat the Star Point pattern from Rows 6-10 (including the sc down the side) for a total of 5 times. This way you will create the 5 points for the star."},
+                {"type": "instruction", "instruction": "You should now have a complete 2-D Star Applique. You can now cut and fasten off the yarn for the first star applique."}
             ]
         }
     ]
