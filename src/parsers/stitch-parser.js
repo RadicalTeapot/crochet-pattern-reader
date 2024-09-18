@@ -1,20 +1,6 @@
-import { Stitch, StitchGroup } from './stitch.js';
-
-export function StitchCountResolver(previousStitchCount = 0) {
-    if (previousStitchCount < 0) {
-        throw new Error(`Invalid count ${previousStitchCount}`);
-    }
-
-    return function(count) {
-        if (count < 0) {
-            throw new Error(`Invalid count ${count}`);
-        }
-        if (count === 0) {
-            return previousStitchCount;
-        }
-        return count;
-    }
-}
+import { Stitch } from '../models/stitch.js';
+import { StitchGroup } from '../models/stitch-group.js';
+import { StitchCountResolver } from '../utils/stitch-count-resolver.js';
 
 // TODO Write a count modifier resolver that can be used in the parser (converting known names to numbers)
 

@@ -1,4 +1,4 @@
-import { Instruction } from "../models/instruction";
+import { Instruction } from '../models/instruction.js';
 
 export function parseInstruction(data) {
     if (!data || !data.instruction || !data.type) {
@@ -10,4 +10,3 @@ export function parseInstruction(data) {
     }
     return new Instruction(data.instruction);
 }
-

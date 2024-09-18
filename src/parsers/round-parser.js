@@ -1,7 +1,8 @@
 import { StitchParser } from './stitch-parser.js';
-import { StitchCountResolver } from './stitch-parser.js';
-import { Round, RoundCountResolver } from './round.js';
-import { Instruction } from './instruction.js';
+import { StitchCountResolver } from '../utils/stitch-count-resolver.js';
+import { Round, } from '../models/round.js';
+import { RoundCountResolver } from '../utils/round-resolvers.js';
+import { Instruction } from '../models/instruction.js';
 
 export function RoundParser(previousRound, countResolver = RoundCountResolver()) {
     this._previousRound = previousRound;

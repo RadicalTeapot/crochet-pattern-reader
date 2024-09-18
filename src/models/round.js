@@ -1,4 +1,4 @@
-import { RoundCountResolver, RoundStitchIndexResolver } from '../utils/round-resolvers';
+import { RoundCountResolver, RoundStitchIndexResolver } from '../utils/round-resolvers.js';
 
 export function Round(stitches, instruction) {
     if (!stitches || stitches.length === 0) {

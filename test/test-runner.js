@@ -1,6 +1,13 @@
-import './stitch-test.js';
-import './stitch-counter-test.js';
-import './stitch-parser-test.js';
-import './round-test.js';
-import './round-parser-test.js';
-import './instruction-test.js';
+import './models/instruction-test.js';
+import './models/round-test.js';
+import './models/stitch-group-test.js';
+import './models/stitch-test.js';
+
+import './parsers/instruction-parser-test.js';
+import './parsers/round-parser-test.js';
+import './parsers/stitch-parser-test.js';
+
+import './utils/flat-stitch-array-generator-test.js';
+import './utils/round-resolvers-test.js';
+import './utils/stitch-count-resolver-test.js';
+import './utils/stitch-counter-test.js';

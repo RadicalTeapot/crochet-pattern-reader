@@ -1,4 +1,4 @@
-import { FlatStitchArrayGenerator } from "./flat-stitch-array-generator";
+import { FlatStitchArrayGenerator } from './flat-stitch-array-generator.js';
 import { StitchCounter } from './stitch-counter.js';
 
 export function RoundCountResolver(flattener = FlatStitchArrayGenerator.fromArray, counter = StitchCounter.getCount) {

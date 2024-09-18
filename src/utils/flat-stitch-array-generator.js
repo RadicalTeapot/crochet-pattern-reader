@@ -1,4 +1,5 @@
-import { Stitch } from "../models/stitch";
+import { Stitch } from '../models/stitch.js';
+import { StitchGroup } from '../models/stitch-group.js';
 
 export const FlatStitchArrayGenerator = {
     fromSingle: function(object) {
