@@ -31,18 +31,18 @@ testSuite('StringViewResolver.instructionView',
     })
 );
 
-testSuite('StringViewResolver.roundView',
+testSuite('StringViewResolver.patternElementView',
     it => it('Converts a round to a string', () => {
-        assert.equal(StringViewResolver.roundView([new Stitch('sc', 1, 1)], undefined, 0, 1), '1 - sc [1]');
+        assert.equal(StringViewResolver.patternElementView('abc', [new Stitch('sc', 1, 1)], undefined, 0, 1), 'abc 1 - sc [1]');
     }),
 
     it => it('Converts a round with an instruction to a string', () => {
-        assert.equal(StringViewResolver.roundView([new Stitch('sc', 1, 1)], new Instruction('abc'), 0, 1), '1 - sc (abc) [1]');
+        assert.equal(StringViewResolver.patternElementView('abc', [new Stitch('sc', 1, 1)], new Instruction('abc'), 0, 1), 'abc 1 - sc (abc) [1]');
     })
 );
 
 testSuite('StringViewResolver.projectView',
     it => it('Converts a project to a string', () => {
-        assert.equal(StringViewResolver.projectView('abc', [new Round([new Stitch('sc', 1, 1)], undefined, 0, 1), new Instruction('def')]), 'abc\n  1 - sc [1]\n  def');
+        assert.equal(StringViewResolver.projectView('abc', [new Round([new Stitch('sc', 1, 1)], undefined, 0, 1), new Instruction('def')]), 'abc\n  Round 1 - sc [1]\n  def');
     })
 );

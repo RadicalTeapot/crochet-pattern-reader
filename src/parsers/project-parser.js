@@ -8,11 +8,14 @@ export function parseProject(data) {
     }
 
     const roundParser = new RoundParser();
+    const rowParser = new RoundParser();
 
     const pattern = data.pattern.map(d => {
         switch (d.type) {
             case 'round':
                 return roundParser.parseRound(d);
+            case 'row':
+                return rowParser.parseRound(d);
             case 'instruction':
                 return parseInstruction(d);
             default:

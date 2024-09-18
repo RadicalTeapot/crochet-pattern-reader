@@ -1,6 +1,6 @@
 import { RoundCountResolver, RoundStitchIndexResolver } from '../utils/round-resolvers.js';
 
-export function Round(stitches, instruction, indexInPattern = 0) {
+function PatternElement(elementName, stitches, instruction, indexInPattern = 0) {
     if (!stitches || stitches.length === 0) {
         throw new Error('Empty round');
     }
@@ -8,8 +8,9 @@ export function Round(stitches, instruction, indexInPattern = 0) {
     this._stitches = stitches;
     this._instruction = instruction;
     this._indexInPattern = indexInPattern;
+    this._elementName = elementName;
 }
-Object.assign(Round.prototype, {
+Object.assign(PatternElement.prototype, {
     getIndexInPattern: function() {
         return this._indexInPattern;
     },
@@ -20,6 +21,16 @@ Object.assign(Round.prototype, {
         return resolver(index, this._stitches);
     },
     asView: function(viewResolver) {
-        return viewResolver.roundView(this._stitches, this._instruction, this._indexInPattern, this.getStitchCount());
+        return viewResolver.patternElementView(this._elementName, this._stitches, this._instruction, this._indexInPattern, this.getStitchCount());
     }
 });
+
+export function Round(stitches, instruction, indexInPattern = 0) {
+    PatternElement.call(this, 'Round', stitches, instruction, indexInPattern);
+}
+Object.assign(Round.prototype, PatternElement.prototype);
+
+export function Row(stitches, instruction, indexInPattern = 0) {
+    PatternElement.call(this, 'Row', stitches, instruction, indexInPattern);
+}
+Object.assign(Row.prototype, PatternElement.prototype);

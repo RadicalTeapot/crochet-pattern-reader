@@ -13,5 +13,8 @@ export function StitchGroup(stitches, count = 1) {
 Object.assign(StitchGroup.prototype, {
     asView: function(viewResolver) {
         return viewResolver.stitchGroupView(this.stitches, this.count);
+    },
+    asFlatStitchArray: function(flatStitchArrayResolver) {
+        return flatStitchArrayResolver.fromStitchGroup(this.stitches, this.count);
     }
 });

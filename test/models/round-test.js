@@ -2,6 +2,7 @@ import assert from 'assert';
 import { testSuite } from '../test-suite.js';
 import { Round } from '../../src/models/round.js';
 import { Stitch } from '../../src/models/stitch.js';
+import { Instruction } from '../../src/models/instruction.js';
 
 testSuite('Round',
     it => it('Fails when stitches is empty', () => {
@@ -23,6 +24,16 @@ testSuite('Round',
     it => it('Enables getting the count of stitches', () => {
         const round = new Round([new Stitch('sc', 1)], 0);
         assert.strictEqual(round.getStitchCount(), 1);
+    }),
+
+    it => it('Ignores instructions when getting stitch count', () => {
+        const round = new Round([new Stitch('sc', 1), new Instruction('abc')], 0);
+        assert.strictEqual(round.getStitchCount(), 1);
+    }),
+
+    it => it('Ignores instructions when getting stitch at index', () => {
+        const round = new Round([new Instruction('abc'), new Stitch('sc', 1)], 0);
+        assert.deepStrictEqual(round.getStitchAtIndex(0), new Stitch('sc', 1));
     }),
 
     it => it('Enables getting the index in the pattern', () => {

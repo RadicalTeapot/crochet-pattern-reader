@@ -1,21 +1,24 @@
 import { Stitch } from '../models/stitch.js';
-import { StitchGroup } from '../models/stitch-group.js';
+
+export const FlatStitchArrayResolver = {
+    fromStitch: function(name, count, countModifier) {
+        return Array(count).fill(new Stitch(name, 1, countModifier));
+    },
+    fromStitchGroup: function(stitches, count) {
+        return Array(count)
+            .fill(0)
+            .reduce((a, _) => a.concat(stitches.reduce((b, s) => b.concat(s.asFlatStitchArray(this)), [])) , []);
+    },
+    fromInstruction: function(instruction) {
+        return [];
+    }
+}
 
 export const FlatStitchArrayGenerator = {
-    fromSingle: function(object) {
-        if (object instanceof Stitch) return FlatStitchArrayGenerator._fromStitch(object);
-        else if (object instanceof StitchGroup) return FlatStitchArrayGenerator._fromGroup(object);
-        else throw new Error(`Invalid object ${object}`);
+    fromSingle: function(object, resolver = FlatStitchArrayResolver) {
+        return object.asFlatStitchArray(resolver);
     },
-    fromArray: function(array) {
-        return array.reduce((a, b) => a.concat(FlatStitchArrayGenerator.fromSingle(b)), []);
+    fromArray: function(array, resolver = FlatStitchArrayResolver) {
+        return array.reduce((a, b) => a.concat(FlatStitchArrayGenerator.fromSingle(b, resolver)), []);
     },
-    _fromStitch: function(stitch){
-        return Array(stitch.count).fill(new Stitch(stitch.name, 1, stitch.countModifier));
-    },
-    _fromGroup: function(stitchGroup) {
-        return Array(stitchGroup.count)
-            .fill(0)
-            .reduce((a, _) => a.concat(FlatStitchArrayGenerator.fromArray(stitchGroup.stitches)) , []);
-    }
 }

@@ -1,8 +1,9 @@
 import assert from 'assert';
 import { testSuite } from '../test-suite.js';
-import { Round } from '../../src/models/round.js';
+import { Round, Row } from '../../src/models/round.js';
 import { Stitch } from '../../src/models/stitch.js';
 import { RoundParser } from '../../src/parsers/round-parser.js';
+import { Instruction } from '../../src/models/instruction.js';
 
 testSuite('RoundParser',
     it => it('Fails when data is invalid', () => {
@@ -16,6 +17,18 @@ testSuite('RoundParser',
         const parser = new RoundParser();
         const round = parser.parseRound({ type: 'round', stitches: [{ type: 'stitch', name: 'sc', count: 1 }] });
         assert.deepStrictEqual(round, new Round([new Stitch('sc', 1, 1)], undefined, 0));
+    }),
+
+    it => it('Works with row', () => {
+        const parser = new RoundParser();
+        const round = parser.parseRound({ type: 'row', stitches: [{ type: 'stitch', name: 'sc', count: 1 }] });
+        assert.deepStrictEqual(round, new Row([new Stitch('sc', 1, 1)], undefined, 0));
+    }),
+
+    it => it('Supports instructions inside stitches', () => {
+        const parser = new RoundParser();
+        const round = parser.parseRound({ type: 'round', stitches: [{ type: 'stitch', name: 'sc', count: 1}, { type: 'instruction', instruction: 'abc' }] });
+        assert.deepStrictEqual(round, new Round([new Stitch('sc', 1, 1), new Instruction('abc')], undefined, 0));
     }),
 
     it => it('Fails when count is 0 when no previous round is set', () => {

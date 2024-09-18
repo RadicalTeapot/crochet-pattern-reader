@@ -29,7 +29,12 @@ testSuite('Stitch',
     }),
 
     it => it('Has a asView method', () => {
-        const stitch = new Stitch('sc', 2, 2);
+        const stitch = new Stitch('sc', 1, 1);
         assert.notStrictEqual(stitch.asView, undefined);
+    }),
+
+    it => it('Has a asFlatStitchArray method', () => {
+        const stitch = new Stitch('sc', 1, 1);
+        assert.notStrictEqual(stitch.asFlatStitchArray, undefined);
     })
 );

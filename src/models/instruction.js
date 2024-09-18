@@ -9,5 +9,8 @@ export function Instruction(instruction) {
 Object.assign(Instruction.prototype, {
     asView: function(viewResolver) {
         return viewResolver.instructionView(this.instruction);
+    },
+    asFlatStitchArray: function(flatStitchArrayResolver) {
+        return flatStitchArrayResolver.fromInstruction(this.instruction);
     }
 });

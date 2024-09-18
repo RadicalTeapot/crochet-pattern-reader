@@ -17,5 +17,10 @@ testSuite('Instruction',
     it => it('Has a asView method', () => {
         const instruction = new Instruction('sc 1');
         assert.notStrictEqual(instruction.asView, undefined);
+    }),
+
+    it => it('Has a asFlatStitchArray method', () => {
+        const instruction = new Instruction('sc 1');
+        assert.notStrictEqual(instruction.asFlatStitchArray, undefined);
     })
 );

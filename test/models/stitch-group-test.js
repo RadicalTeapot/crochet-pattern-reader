@@ -23,8 +23,13 @@ testSuite('StitchGroup',
     }),
 
     it => it('Has a asView method', () => {
-        const group = new StitchGroup([new Stitch('sc', 2)], 3);
+        const group = new StitchGroup([new Stitch('sc', 1)], 1);
         assert.notStrictEqual(group.asView, undefined);
+    }),
+
+    it => it('Has a asFlatStitchArray method', () => {
+        const group = new StitchGroup([new Stitch('sc', 1)], 1);
+        assert.notStrictEqual(group.asFlatStitchArray, undefined);
     })
 );
 
