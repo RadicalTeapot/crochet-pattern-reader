@@ -8,7 +8,7 @@ testSuite('parseInstruction',
         assert.throws(() => parseInstruction()); // No data
         assert.throws(() => parseInstruction({})); // No instruction
         assert.throws(() => parseInstruction({ instruction: 'sc 1' })); // No type
-        assert.throws(() => parseInstruction({ instruction: 'sc 1', type: 'other' })); // Invalid type
+        assert.throws(() => parseInstruction({ instruction: 'sc 1', type: 'invalid' })); // Invalid type
     }),
     it => it('Works with valid data', () => {
         const instruction = parseInstruction({ instruction: 'sc 1', type: 'instruction' });

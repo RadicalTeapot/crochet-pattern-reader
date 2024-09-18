@@ -8,7 +8,7 @@ testSuite('RoundParser',
     it => it('Fails when data is invalid', () => {
         const parser = new RoundParser();
         assert.throws(() => parser.parseRound({})); // Empty
-        assert.throws(() => parser.parseRound({ type: 'other' })); // Invalid type
+        assert.throws(() => parser.parseRound({ type: 'invalid' })); // Invalid type
         assert.throws(() => parser.parseRound({ type: 'round' })); // No stitches
     }),
 

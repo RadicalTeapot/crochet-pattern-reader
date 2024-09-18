@@ -4,6 +4,11 @@ const colors = {
     title: '\x1b[34;1;4m%s\x1b[0m', // Bold (1) blue (34) underlined (4)
 };
 
+const options = {
+    reportSucessfulTests: true,
+    reportFailedTests: true,
+};
+
 export function testSuite(desc, ...suite_fns) {
     const it = function(desc, fn) {
         try {
@@ -18,9 +23,12 @@ export function testSuite(desc, ...suite_fns) {
     const color = results.every(result => result.successful) ? colors.title : colors.error;
     console.log(color, `${desc} [${results.filter(result => result.successful).length}/${results.length}]`);
     results.forEach(result => {
-        console.log(result.color, ` ${result.message}`);
-        if (!result.successful) {
+        if (!result.successful && options.reportFailedTests) {
+            console.log(result.color, ` ${result.message}`);
             console.error(result.error);
+        } 
+        else if (options.reportSucessfulTests) {
+            console.log(result.color, ` ${result.message}`);
         }
     });
     console.log(); // New line
