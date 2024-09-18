@@ -111,23 +111,23 @@
                 ]},
                 {"type": "round", "stitches": [
                     {"type": "repeat", "count": 6, "stitches": [
-                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 2}
-                        {"type": "stitch", "name": "sc", "count": 1},
+                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 2},
+                        {"type": "stitch", "name": "sc", "count": 1}
                     ]}
                 ]},
                 {"type": "round", "stitches": [
                     {"type": "repeat", "count": 6, "stitches": [
-                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 2}
-                        {"type": "stitch", "name": "sc", "count": 2},
+                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 2},
+                        {"type": "stitch", "name": "sc", "count": 2}
                     ]}
                 ]},
                 {"type": "round", "stitches": [
                     {"type": "repeat", "count": 6, "stitches": [
-                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 2}
+                        {"type": "stitch", "name": "inc", "count": 1, "countModifier": 2},
                         {"type": "stitch", "name": "sc", "count": 3}
                     ]}
                 ]},
-                {"type": "instruction", "instruction": "Now for the Star Points, we will start working in rows"}
+                {"type": "instruction", "instruction": "Now for the Star Points, we will start working in rows"},
                 {"type": "row", "stitches": [
                     {"type": "stitch", "name": "sc", "count": 6}
                 ], "instruction": "Sc in next 6 sts only"},

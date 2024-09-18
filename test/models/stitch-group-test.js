@@ -21,5 +21,10 @@ testSuite('StitchGroup',
         const group = new StitchGroup([new Stitch('sc', 2)], 3);
         assert.strictEqual(group.count, 3);
     }),
+
+    it => it('Has a asView method', () => {
+        const group = new StitchGroup([new Stitch('sc', 2)], 3);
+        assert.notStrictEqual(group.asView, undefined);
+    })
 );
 

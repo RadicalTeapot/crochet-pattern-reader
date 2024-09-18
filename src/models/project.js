@@ -20,4 +20,7 @@ Object.assign(Project.prototype, {
 
         return this._pattern[index];
     },
+    asView: function(viewResolver) {
+        return viewResolver.projectView(this.name, this._pattern);
+    }
 });

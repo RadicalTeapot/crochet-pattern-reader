@@ -10,3 +10,8 @@ export function StitchGroup(stitches, count = 1) {
     this.stitches = stitches;
     this.count = count;
 }
+Object.assign(StitchGroup.prototype, {
+    asView: function(viewResolver) {
+        return viewResolver.stitchGroupView(this.stitches, this.count);
+    }
+});

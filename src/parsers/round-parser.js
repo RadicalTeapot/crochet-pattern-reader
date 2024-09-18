@@ -28,7 +28,8 @@ Object.assign(RoundParser.prototype, {
             instruction = new Instruction(data.instruction);
         }
 
-        const round = new Round(stitches, instruction);
+        const indexInPattern = this._previousRound ? this._previousRound.getIndexInPattern() + 1 : 0;
+        const round = new Round(stitches, instruction, indexInPattern);
         this._previousRound = round;
         return round;
     }

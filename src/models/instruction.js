@@ -6,3 +6,8 @@ export function Instruction(instruction) {
     }
     this.instruction = trimmed;
 }
+Object.assign(Instruction.prototype, {
+    asView: function(viewResolver) {
+        return viewResolver.instructionView(this.instruction);
+    }
+});

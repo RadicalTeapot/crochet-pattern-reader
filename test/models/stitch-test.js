@@ -27,4 +27,9 @@ testSuite('Stitch',
         assert.strictEqual(stitch.count, 2);
         assert.strictEqual(stitch.countModifier, 2);
     }),
+
+    it => it('Has a asView method', () => {
+        const stitch = new Stitch('sc', 2, 2);
+        assert.notStrictEqual(stitch.asView, undefined);
+    })
 );

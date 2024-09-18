@@ -26,5 +26,10 @@ testSuite('Project',
         assert.strictEqual(project.getPatternElement(0), 1);
         assert.strictEqual(project.getPatternElement(1), 2);
     }),
+
+    it => it('Has a asView method', () => {
+        const project = new Project('My Project', []);
+        assert.notStrictEqual(project.asView, undefined);
+    })
 );
 

@@ -14,5 +14,4 @@ import './utils/round-resolvers-test.js';
 import './utils/stitch-count-resolver-test.js';
 import './utils/stitch-counter-test.js';
 
-import './views/stitch-view-test.js';
-import './views/stitch-group-view-test.js';
+import './views/string-view-resolver-test.js';

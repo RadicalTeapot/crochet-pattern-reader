@@ -15,3 +15,8 @@ export function Stitch(name, count = 1, countModifier = 1) {
     this.count = count;
     this.countModifier = countModifier;
 }
+Object.assign(Stitch.prototype, {
+    asView: function(viewResolver) {
+        return viewResolver.stitchView(this.name, this.count);
+    }
+});
