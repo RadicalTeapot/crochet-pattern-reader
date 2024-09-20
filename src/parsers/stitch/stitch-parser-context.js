@@ -43,6 +43,7 @@ Object.assign(StitchIndexLookup.prototype, {
             throw new Error('Invalid index lookup');
         }
         this._currentIndex.pop();
+        this._currentIndex[this._currentIndex.length - 1]++;
     },
     getIndexLookup: function() {
         if (this._currentIndex.length > 1) {
