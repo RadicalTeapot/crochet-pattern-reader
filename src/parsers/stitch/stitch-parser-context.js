@@ -1,7 +1,7 @@
 export function StitchCounter() {
     this._currentGroup = {parent: null, elements: []};
 }
-Object.assign(StitchParserContext.prototype, {
+Object.assign(StitchCounter.prototype, {
     startGroup: function() {
         const newGroup = {parent: this._currentGroup, elements: []};
         this._currentGroup = newGroup;
@@ -26,11 +26,11 @@ Object.assign(StitchParserContext.prototype, {
     }
 });
 
-export function StichIndexLookup() {
+export function StitchIndexLookup() {
     this._indexLookUp = []; // Flat index to stitch lookup
     this._currentIndex = [0];
 }
-Object.assign(StitchParserContext.prototype, {
+Object.assign(StitchIndexLookup.prototype, {
     startGroup: function() {
         this._currentIndex.push(0);
     },
@@ -54,7 +54,7 @@ Object.assign(StitchParserContext.prototype, {
 
 export function StitchParserContext(counter, indexLookup) {
     this._counter = counter || new StitchCounter();
-    this._indexLookUp = indexLookup || new StichIndexLookup();
+    this._indexLookUp = indexLookup || new StitchIndexLookup();
 }
 Object.assign(StitchParserContext.prototype, {
     startGroup: function() {
