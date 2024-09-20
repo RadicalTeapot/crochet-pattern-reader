@@ -4,11 +4,11 @@ export function StitchCountResolver(previousStitchCount = 0) {
     }
 
     return function(count) {
-        if (count < 0) {
-            throw new Error(`Invalid count ${count}`);
-        }
-        if (count === 0) {
+        if (count === -1) {
             return previousStitchCount;
+        }
+        if (count <= 0) {
+            throw new Error(`Invalid count ${count}`);
         }
         return count;
     }

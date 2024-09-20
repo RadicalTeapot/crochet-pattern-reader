@@ -1,8 +1,8 @@
 import { Stitch } from '../models/stitch.js';
 
 export const FlatStitchArrayResolver = {
-    fromStitch: function(name, count, countModifier) {
-        return Array(count).fill(new Stitch(name, 1, countModifier));
+    fromStitch: function(name, count, countModifier, indexInPatternElement) {
+        return Array(count).fill(new Stitch(name, 1, countModifier, indexInPatternElement));
     },
     fromStitchGroup: function(stitches, count) {
         return Array(count)
