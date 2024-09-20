@@ -17,7 +17,7 @@ Object.assign(StitchParserFactory.prototype, {
             case STITCH_ELEMENT_TYPE.GROUP:
                 return new StitchGroupParser(this._context, this._stitchCountResolver, new StitchesParser(this));
             case STITCH_ELEMENT_TYPE.INSTRUCTION:
-                return InstructionParser;
+                return new InstructionParser();
             default:
                 throw new Error(`Invalid type ${type} found in stitch`);
         }
@@ -29,6 +29,11 @@ export function StitchesParser(stitchParserFactory) {
 }
 Object.assign(StitchesParser.prototype, {
     parse: function(data) {
-        return data.map(d => this._parserFactory.getParser(d.type).parse(d));
+        return data.map(d => {
+            if (!d || !d.type) {
+                throw new Error(`Invalid data ${d} found in stitches`);
+            }
+            return this._parserFactory.getParser(d.type).parse(d);
+        });
     }
 })
