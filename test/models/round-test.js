@@ -1,6 +1,6 @@
 import assert from 'assert';
 import { testSuite } from '../test-suite.js';
-import { Round } from '../../src/models/round.js';
+import { Round } from '../../src/models/pattern-element.js';
 import { Stitch } from '../../src/models/stitch.js';
 import { Instruction } from '../../src/models/instruction.js';
 
@@ -18,7 +18,7 @@ testSuite('Round',
 
     it => it('Enables getting stitches via an index', () => {
         const round = new Round([new Stitch('sc', 1)], 0);
-        assert.deepStrictEqual(round.getStitchAtIndex(0), new Stitch('sc', 1));
+        assert.deepStrictEqual(round.getElementAtIndex(0), new Stitch('sc', 1));
     }),
 
     it => it('Enables getting the count of stitches', () => {

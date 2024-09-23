@@ -29,7 +29,7 @@ testSuite('StitchParser',
     }),
 
     it => it('Uses count resolver to set count', () => {
-        const parser = new StitchParser(new StitchParserContext(), () => 2);
+        const parser = new StitchParser(new StitchParserContext(), {resolveCount: () => 2});
         const stitch = parser.parse({ type: 'stitch', count: 1, name: 'sc', countModifier: 1 });
         assert.deepStrictEqual(stitch, new Stitch('sc', 2, 1));
     }),
@@ -42,13 +42,6 @@ testSuite('StitchParser',
         assert.strictEqual(count, 1);
         assert.strictEqual(countModifier, 1);
     }),
-
-    // it => it('Parses valid repeat data', () => {
-    //     const parser = getDefaultStitchParser();
-    //     const stitchGroup = parser.parseStitch({ type: 'repeat', count: 1, stitches: [{ type: 'stitch', count: 1, name: 'sc' }] });
-    //     assert.deepStrictEqual(stitchGroup.stitches, [new Stitch('sc', 1)]);
-    //     assert.strictEqual(stitchGroup.count, 1);
-    // }),
 
     it => it('Fails when data is empty object', () => {
         const parser = getDefaultStitchParser();

@@ -1,17 +1,17 @@
 import assert from 'assert';
 import { testSuite } from '../test-suite.js';
-import { parseInstruction } from '../../src/parsers/instruction-parser.js';
+import { InstructionParser } from '../../src/parsers/instruction-parser.js';
 import { Instruction } from '../../src/models/instruction.js';
 
-testSuite('parseInstruction',
+testSuite('InstructionParser',
     it => it('Fails when data is invalid', () => {
-        assert.throws(() => parseInstruction()); // No data
-        assert.throws(() => parseInstruction({})); // No instruction
-        assert.throws(() => parseInstruction({ instruction: 'sc 1' })); // No type
-        assert.throws(() => parseInstruction({ instruction: 'sc 1', type: 'invalid' })); // Invalid type
+        assert.throws(() => new InstructionParser().parse()); // No data
+        assert.throws(() => new InstructionParser().parse({})); // No instruction
+        assert.throws(() => new InstructionParser().parse({ instruction: 'sc 1' })); // No type
+        assert.throws(() => new InstructionParser().parse({ instruction: 'sc 1', type: 'invalid' })); // Invalid type
     }),
     it => it('Works with valid data', () => {
-        const instruction = parseInstruction({ instruction: 'sc 1', type: 'instruction' });
+        const instruction = new InstructionParser().parse({ instruction: 'sc 1', type: 'instruction' });
         assert.deepStrictEqual(instruction, new Instruction('sc 1'));
     }),
 );

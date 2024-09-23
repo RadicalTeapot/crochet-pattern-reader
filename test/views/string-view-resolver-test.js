@@ -3,7 +3,7 @@ import { testSuite } from '../test-suite.js';
 import { StringViewResolver } from '../../src/views/string-view-resolver.js';
 import { Stitch } from '../../src/models/stitch.js';
 import { Instruction } from '../../src/models/instruction.js';
-import { Round } from '../../src/models/round.js';
+import { Round } from '../../src/models/pattern-element.js';
 
 testSuite('StringViewResolver.stitchView',
     it => it('Converts a stitch with count 1 to a string without count', () => {

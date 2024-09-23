@@ -103,5 +103,11 @@ testSuite('StitchParserContext',
         context.addStitch(2, 3);
         assert.strictEqual(indexCount, 1);
         assert.strictEqual(countCount, 6);
+    }),
+
+    it => it('Has sane defaults', () => {
+        const context = new StitchParserContext();
+        assert.strictEqual(context._counter.getTotalCount(), 0);
+        assert.deepEqual(context._indexLookUp.getIndexLookup(), []);
     })
 );

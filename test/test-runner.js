@@ -12,7 +12,7 @@ import './parsers/stitch-parser-test.js';
 
 import './utils/flat-stitch-array-generator-test.js';
 import './utils/flat-stitch-array-resolver-test.js';
-import './utils/round-resolvers-test.js';
+import './utils/pattern-element-index-resolver-test.js';
 import './utils/stitch-count-resolver-test.js';
 import './utils/stitch-counter-test.js';
 

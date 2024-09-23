@@ -2,14 +2,16 @@ export function StitchCountResolver(previousStitchCount = 0) {
     if (previousStitchCount < 0) {
         throw new Error(`Invalid count ${previousStitchCount}`);
     }
-
-    return function(count) {
+    this._previousCount = previousStitchCount;
+}
+Object.assign(StitchCountResolver.prototype, {
+    resolveCount: function(count) {
         if (count === -1) {
-            return previousStitchCount;
+            count = this._previousCount;
         }
         if (count <= 0) {
             throw new Error(`Invalid count ${count}`);
         }
         return count;
     }
-}
+});

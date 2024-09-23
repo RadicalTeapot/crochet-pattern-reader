@@ -7,23 +7,23 @@ testSuite('StitchCountResolver',
         assert.throws(() => new StitchCountResolver(-1));
     }),
 
-    it => it('Has sane defaults', () => {
-        const resolver = new StitchCountResolver();
-        assert.strictEqual(resolver(0), 0);
-    }),
-
     it => it('Returns count when greater than 0', () => {
-        const resolver = new StitchCountResolver();
-        assert.strictEqual(resolver(1), 1);
-    }),
-
-    it => it('Fails when count is negative', () => {
-        const resolver = new StitchCountResolver();
-        assert.throws(() => resolver(-1));
+        const resolver = new StitchCountResolver(0);
+        assert.strictEqual(resolver.resolveCount(1), 1);
     }),
 
     it => it('Returns previous count when count is 0', () => {
         const resolver = new StitchCountResolver(1);
-        assert.strictEqual(resolver(0), 1);
+        assert.strictEqual(resolver.resolveCount(-1), 1);
+    }),
+
+    it => it('Fails when count is 0', () => {
+        const resolver = new StitchCountResolver(0);
+        assert.throws(() => resolver.resolveCount(0));
+    }),
+
+    it => it('Fails when count is -1 and previous count is 0', () => {
+        const resolver = new StitchCountResolver(0);
+        assert.throws(() => resolver.resolveCount(0));
     }),
 );

@@ -1,28 +1,18 @@
 import { Project } from '../models/project.js';
-import { RoundParser } from '../parsers/round-parser.js';
-import { parseInstruction } from '../parsers/instruction-parser.js';
+import { PatternParser } from './pattern-parser.js';
 
-export function parseProject(data) {
-    if (!data || !data.pattern) {
-        throw new Error('Invalid project');
-    }
-
-    const roundParser = new RoundParser();
-    const rowParser = new RoundParser();
-
-    const pattern = data.pattern.map(d => {
-        switch (d.type) {
-            case 'round':
-                return roundParser.parseRound(d);
-            case 'row':
-                return rowParser.parseRound(d);
-            case 'instruction':
-                return parseInstruction(d);
-            default:
-                throw new Error(`Invalid type ${d.type} found in project ${data}`);
-        }
-    }, []);
-    const project = new Project(data.name, pattern);
-
-    return project;
+export function ProjectParser(patternParser) {
+    this._patternParser = patternParser || new PatternParser();
 }
+Object.assign(ProjectParser.prototype, {
+    parse: function(data) {
+        if (!data || !data.pattern) {
+            throw new Error('Invalid project');
+        }
+
+        const pattern = this._patternParser.parse(data.pattern);
+        const project = new Project(data.name, pattern);
+
+        return project;
+    }
+});

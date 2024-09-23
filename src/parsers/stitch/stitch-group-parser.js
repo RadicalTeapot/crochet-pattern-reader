@@ -4,7 +4,7 @@ import { StitchParserContext } from './stitch-parser-context.js';
 
 export function StitchGroupParser(context, stitchCountResolver, stitchesParser) {
     this._context = context || new StitchParserContext();
-    this._stitchCountResolver = stitchCountResolver || StitchCountResolver(0);
+    this._stitchCountResolver = stitchCountResolver || new StitchCountResolver();
     this._stitchesParser = stitchesParser;
 }
 Object.assign(StitchGroupParser.prototype, {
@@ -13,7 +13,7 @@ Object.assign(StitchGroupParser.prototype, {
             throw new Error(`Invalid data ${data} when parsing stitch group`);
         }
 
-        const count = this._stitchCountResolver(data.count || 1);
+        const count = this._stitchCountResolver.resolveCount(data.count || 1);
         if (!count) {
             throw new Error(`Invalid count ${count}`);
         }

@@ -1,22 +1,22 @@
-import { Round } from '../models/pattern-element.js';
+import { Row } from '../models/pattern-element.js';
 import { Instruction } from '../models/instruction.js';
 import { PATTERN_ELEMENT_TYPE } from '../utils/pattern-element-type.js';
 import { PatternParserContext } from './pattern-parser.js';
 import { StitchesParser } from './stitch/stitches-parser.js';
 
-export function RoundParser(context, stitchesParser) {
+export function RowParser(context, stitchesParser) {
     this._context = context || new PatternParserContext();
     this._stitchesParser = stitchesParser || new StitchesParser();
 }
-Object.assign(RoundParser.prototype, {
+Object.assign(RowParser.prototype, {
     parse: function(data) {
-        if (!data || !data.type || !data.stitches || data.type !== 'round') {
-            throw new Error('Found invalid round element during pattern parsing');
+        if (!data || !data.type || !data.stitches || data.type !== 'row') {
+            throw new Error('Found invalid row during pattern parsing');
         }
 
         const stitches = this._stitchesParser.parse(data.stitches);
         const totalStitchCount = this._stitchesParser.getTotalStitchCount();
-        const stitchesIndexLookup = this._stitchesParser.getStitchesIndexLookup(); // TODO Maybe use a resolver here to inject in the Round model so it's easier to use
+        const stitchesIndexLookup = this._stitchesParser.getStitchesIndexLookup();
 
         let instruction;
         if (data.instruction) {
@@ -24,8 +24,8 @@ Object.assign(RoundParser.prototype, {
         }
 
         const indexInPattern = this._context.getAndIncrementAbsoluteIndex();
-        const indexPerType = this._context.getAndIncrementPerTypeIndex(PATTERN_ELEMENT_TYPE.ROUND);
-        const patternElement = new Round(stitches, instruction, totalStitchCount, stitchesIndexLookup, indexInPattern, indexPerType);
+        const indexPerType = this._context.getAndIncrementPerTypeIndex(PATTERN_ELEMENT_TYPE.ROW);
+        const patternElement = new Row(stitches, instruction, totalStitchCount, stitchesIndexLookup, indexInPattern, indexPerType);
         return patternElement;
     }
 })

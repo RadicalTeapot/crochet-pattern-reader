@@ -70,10 +70,10 @@ Object.assign(StitchParserContext.prototype, {
         this._counter.finalizeGroup(count);
         this._indexLookUp.finalizeGroup();
     },
-    getIndexLookup: function() {
+    getStitchesIndexLookup: function() {
         return this._indexLookUp.getIndexLookup();
     },
-    getModifiedStitchCount: function() {
+    getTotalStitchCount: function() {
         return this._counter.getTotalCount();
     }
 });

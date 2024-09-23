@@ -1,7 +1,7 @@
 
 import assert from 'assert';
 import { testSuite } from '../test-suite.js';
-import { Row } from '../../src/models/round.js';
+import { Row } from '../../src/models/pattern-element.js';
 import { Stitch } from '../../src/models/stitch.js';
 import { Instruction } from '../../src/models/instruction.js';
 

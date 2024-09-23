@@ -6,7 +6,7 @@ import { StitchParserContext } from './stitch-parser-context.js';
 
 export function StitchParser(context, stitchCountResolver) {
     this._context = context || new StitchParserContext();
-    this._stitchCountResolver = stitchCountResolver || StitchCountResolver(0);
+    this._stitchCountResolver = stitchCountResolver || new StitchCountResolver();
 }
 Object.assign(StitchParser.prototype, {
     parse: function(data) {
@@ -14,7 +14,7 @@ Object.assign(StitchParser.prototype, {
             throw new Error(`Invalid data ${data} when parsing stitch`);
         }
 
-        const count = this._stitchCountResolver(data.count || 1);
+        const count = this._stitchCountResolver.resolveCount(data.count || 1);
         if (!count) {
             throw new Error(`Invalid count ${count} when parsing stitch`);
         }
