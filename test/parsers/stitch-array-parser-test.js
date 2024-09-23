@@ -1,6 +1,6 @@
 import { testSuite } from '../test-suite.js';
 import assert from 'assert';
-import { StitchParserFactory, StitchesParser } from '../../src/parsers/stitch/stitches-parser.js';
+import { StitchParserFactory, StitchArrayParser } from '../../src/parsers/stitch/stitch-array-parser.js';
 import { StitchParser } from '../../src/parsers/stitch/stitch-parser.js';
 import { StitchGroupParser } from '../../src/parsers/stitch/stitch-group-parser.js';
 import { InstructionParser } from '../../src/parsers/instruction-parser.js';
@@ -34,9 +34,9 @@ testSuite('StitchParserFactory',
     })
 );
 
-testSuite('StitchesParser',
+testSuite('StitchArrayParser',
     it => it('Parses stitch correctly', () => {
-        const parser = new StitchesParser();
+        const parser = new StitchArrayParser();
         const stitches = parser.parse([
             {type: 'stitch', name: 'sc', count: 1, countModifier: 1}
         ]);
@@ -44,7 +44,7 @@ testSuite('StitchesParser',
     }),
 
     it => it('Parses stitch group correctly', () => {
-        const parser = new StitchesParser();
+        const parser = new StitchArrayParser();
         const stitches = parser.parse([
             {type: 'repeat', count: 1, stitches: [{type: 'stitch', name: 'sc', count: 1, countModifier: 1}]}
         ]);
@@ -52,7 +52,7 @@ testSuite('StitchesParser',
     }),
 
     it => it('Parses instructions correctly', () => {
-        const parser = new StitchesParser();
+        const parser = new StitchArrayParser();
         const stitches = parser.parse([
             {type: 'instruction', instruction: 'abc'}
         ]);
@@ -60,7 +60,7 @@ testSuite('StitchesParser',
     }),
 
     it => it('Fails if data is invalid', () => {
-        const parser = new StitchesParser();
+        const parser = new StitchArrayParser();
         assert.throws(() => parser.parse([{}])); // Empty data
         assert.throws(() => parser.parse([{name: 'sc', count: 1, countModifier: 1}])); // Missing type
     })

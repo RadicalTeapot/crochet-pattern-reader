@@ -53,28 +53,3 @@ Object.assign(StitchIndexLookup.prototype, {
     },
 });
 
-export function StitchParserContext(counter, indexLookup) {
-    this._counter = counter || new StitchCounter();
-    this._indexLookUp = indexLookup || new StitchIndexLookup();
-}
-Object.assign(StitchParserContext.prototype, {
-    startGroup: function() {
-        this._counter.startGroup();
-        this._indexLookUp.startGroup();
-    },
-    addStitch: function(count, countModifier) {
-        this._counter.addCount(count * countModifier);
-        this._indexLookUp.addStitch();
-    },
-    finalizeGroup: function(count) {
-        this._counter.finalizeGroup(count);
-        this._indexLookUp.finalizeGroup();
-    },
-    getStitchesIndexLookup: function() {
-        return this._indexLookUp.getIndexLookup();
-    },
-    getTotalStitchCount: function() {
-        return this._counter.getTotalCount();
-    }
-});
-

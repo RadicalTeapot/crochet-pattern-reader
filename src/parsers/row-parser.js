@@ -1,12 +1,12 @@
 import { Row } from '../models/pattern-element.js';
 import { Instruction } from '../models/instruction.js';
 import { PATTERN_ELEMENT_TYPE } from '../utils/pattern-element-type.js';
-import { PatternParserContext } from './pattern-parser.js';
-import { StitchesParser } from './stitch/stitches-parser.js';
+import { PatternElementParserContext } from './pattern-parser.js';
+import { StitchArrayParser } from './stitch/stitch-array-parser.js';
 
 export function RowParser(context, stitchesParser) {
-    this._context = context || new PatternParserContext();
-    this._stitchesParser = stitchesParser || new StitchesParser();
+    this._context = context || new PatternElementParserContext();
+    this._stitchesParser = stitchesParser || new StitchArrayParser();
 }
 Object.assign(RowParser.prototype, {
     parse: function(data) {

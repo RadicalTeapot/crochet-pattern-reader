@@ -4,8 +4,8 @@ import { Round, Row } from '../../src/models/pattern-element.js';
 import { Stitch } from '../../src/models/stitch.js';
 import { RoundParser } from '../../src/parsers/round-parser.js';
 import { Instruction } from '../../src/models/instruction.js';
-import { PatternParserContext } from '../../src/parsers/pattern-parser.js';
-import { StitchesParser } from '../../src/parsers/stitch/stitches-parser.js';
+import { PatternElementParserContext } from '../../src/parsers/pattern-parser.js';
+import { StitchArrayParser } from '../../src/parsers/stitch/stitch-array-parser.js';
 
 testSuite('RoundParser',
     it => it('Fails when data is invalid', () => {
@@ -33,7 +33,7 @@ testSuite('RoundParser',
     }),
 
     it => it('Gets index in pattern from the context', () => {
-        const context = new PatternParserContext();
+        const context = new PatternElementParserContext();
         context.getAndIncrementAbsoluteIndex = () => 1;
         const parser = new RoundParser(context);
         const round = parser.parse({ type: 'round', stitches: [{ type: 'stitch', name: 'sc', count: 1 }] });
@@ -41,25 +41,25 @@ testSuite('RoundParser',
     }),
 
     it => it('Gets index per type from the context', () => {
-        const context = new PatternParserContext();
+        const context = new PatternElementParserContext();
         context.getAndIncrementPerTypeIndex = () => 1;
         const parser = new RoundParser(context);
         const round = parser.parse({ type: 'round', stitches: [{ type: 'stitch', name: 'sc', count: 1 }] });
         assert.deepStrictEqual(round, new Round([new Stitch('sc', 1, 1)], undefined, 1, [[0]], 0, 1));
     }),
 
-    it => it('Gets total stitch count from Stitches parser', () => {
-        const stitchesParser = new StitchesParser();
-        stitchesParser.getTotalStitchCount = () => 2;
-        const parser = new RoundParser(undefined, stitchesParser);
+    it => it('Gets total stitch count from stitch array parser', () => {
+        const stitchArrayParser = new StitchArrayParser();
+        stitchArrayParser.getTotalStitchCount = () => 2;
+        const parser = new RoundParser(undefined, stitchArrayParser);
         const round = parser.parse({ type: 'round', stitches: [{ type: 'stitch', name: 'sc', count: 1 }] });
         assert.deepStrictEqual(round, new Round([new Stitch('sc', 1, 1)], undefined, 2, [[0]], 0, 0));
     }),
 
-    it => it('Gets index lookup from Stitches parser', () => {
-        const stitchesParser = new StitchesParser();
-        stitchesParser.getStitchesIndexLookup = () => [[1]];
-        const parser = new RoundParser(undefined, stitchesParser);
+    it => it('Gets index lookup from stitch array parser', () => {
+        const stitchArrayParser = new StitchArrayParser();
+        stitchArrayParser.getStitchesIndexLookup = () => [[1]];
+        const parser = new RoundParser(undefined, stitchArrayParser);
         const round = parser.parse({ type: 'round', stitches: [{ type: 'stitch', name: 'sc', count: 1 }] });
         assert.deepStrictEqual(round, new Round([new Stitch('sc', 1, 1)], undefined, 1, [[1]], 0, 0));
     })
