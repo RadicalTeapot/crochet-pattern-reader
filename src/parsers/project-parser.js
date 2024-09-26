@@ -1,8 +1,8 @@
 import { Project } from '../models/project.js';
-import { PatternParser } from './pattern-parser.js';
+import { PatternArrayParser } from './pattern-parser.js';
 
-export function ProjectParser(patternParser) {
-    this._patternParser = patternParser || new PatternParser();
+export function ProjectParser(patternArrayParser) {
+    this._patternArrayParser = patternArrayParser || new PatternArrayParser();
 }
 Object.assign(ProjectParser.prototype, {
     parse: function(data) {
@@ -10,7 +10,7 @@ Object.assign(ProjectParser.prototype, {
             throw new Error('Invalid project');
         }
 
-        const pattern = this._patternParser.parse(data.pattern);
+        const pattern = this._patternArrayParser.parse(data.pattern);
         const project = new Project(data.name, pattern);
 
         return project;

@@ -1,11 +1,11 @@
 import { Stitch } from '../../models/stitch.js';
 import { StitchCountResolver } from '../../utils/stitch-count-resolver.js';
-import { StitchParserContext } from './stitch-parser-context.js';
+import { StitchArrayParserContext } from './stitch-array-parser.js';
 
 // TODO Write a count modifier resolver that can be used in the parser (converting known names to numbers)
 
 export function StitchParser(context, stitchCountResolver) {
-    this._context = context || new StitchParserContext();
+    this._context = context || new StitchArrayParserContext();
     this._stitchCountResolver = stitchCountResolver || new StitchCountResolver();
 }
 Object.assign(StitchParser.prototype, {

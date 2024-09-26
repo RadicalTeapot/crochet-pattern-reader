@@ -3,7 +3,7 @@ import { testSuite } from '../test-suite.js';
 import { StringViewResolver } from '../../src/views/string-view-resolver.js';
 import { Stitch } from '../../src/models/stitch.js';
 import { Instruction } from '../../src/models/instruction.js';
-import { Round } from '../../src/models/pattern-element.js';
+import { PatternElement } from '../../src/models/pattern-element.js';
 
 testSuite('StringViewResolver.stitchView',
     it => it('Converts a stitch with count 1 to a string without count', () => {
@@ -43,6 +43,6 @@ testSuite('StringViewResolver.patternElementView',
 
 testSuite('StringViewResolver.projectView',
     it => it('Converts a project to a string', () => {
-        assert.equal(StringViewResolver.projectView('abc', [new Round([new Stitch('sc', 1, 1)], undefined, 0, 1), new Instruction('def')]), 'abc\n  Round 1 - sc [1]\n  def');
+        assert.equal(StringViewResolver.projectView('abc', [new PatternElement([new Stitch('sc', 1, 1)], undefined, 0, 1), new Instruction('def')]), 'abc\n  Round 1 - sc [1]\n  def');
     })
 );

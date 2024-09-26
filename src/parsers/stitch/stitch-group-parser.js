@@ -1,9 +1,9 @@
 import { StitchGroup } from '../../models/stitch-group.js';
 import { StitchCountResolver } from '../../utils/stitch-count-resolver.js';
-import { StitchParserContext } from './stitch-parser-context.js';
+import { StitchArrayParserContext } from './stitch-array-parser.js';
 
 export function StitchGroupParser(context, stitchCountResolver, stitchesParser) {
-    this._context = context || new StitchParserContext();
+    this._context = context || new StitchArrayParserContext();
     this._stitchCountResolver = stitchCountResolver || new StitchCountResolver();
     this._stitchesParser = stitchesParser;
 }

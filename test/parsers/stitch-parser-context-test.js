@@ -1,6 +1,7 @@
 import { testSuite } from '../test-suite.js';
 import assert from 'assert';
-import { StitchParserContext, StitchCounter, StitchIndexLookup } from '../../src/parsers/stitch/stitch-parser-context.js';
+import { StitchCounter, StitchIndexLookup } from '../../src/parsers/stitch/stitch-parser-context.js';
+import { StitchArrayParserContext } from '../../src/parsers/stitch/stitch-array-parser.js';
 
 testSuite('StitchCounter',
     it => it('Count stitches', () => {
@@ -74,12 +75,12 @@ testSuite('StitchIndexLookup',
     })
 );
 
-testSuite('StitchParserContext',
+testSuite('StitchArrayParserContext',
     it => it('Starts groups', () => {
         let indexGroup = 0, countGroup = 0;
         const indexer = {startGroup: () => { indexGroup = 1 }};
         const counter = {startGroup: () => { countGroup = 2 }};
-        const context = new StitchParserContext(counter, indexer);
+        const context = new StitchArrayParserContext(counter, indexer);
         context.startGroup();
         assert.strictEqual(indexGroup, 1);
         assert.strictEqual(countGroup, 2);
@@ -89,7 +90,7 @@ testSuite('StitchParserContext',
         let indexGroup = 0, countGroup = 0;
         const indexer = {finalizeGroup: () => { indexGroup = 1 }};
         const counter = {finalizeGroup: (count) => { countGroup = count }};
-        const context = new StitchParserContext(counter, indexer);
+        const context = new StitchArrayParserContext(counter, indexer);
         context.finalizeGroup(2);
         assert.strictEqual(indexGroup, 1);
         assert.strictEqual(countGroup, 2);
@@ -99,14 +100,14 @@ testSuite('StitchParserContext',
         let indexCount = 0, countCount = 0;
         const indexer = {addStitch: () => { indexCount = 1 }};
         const counter = {addCount: (count) => { countCount = count }};
-        const context = new StitchParserContext(counter, indexer);
+        const context = new StitchArrayParserContext(counter, indexer);
         context.addStitch(2, 3);
         assert.strictEqual(indexCount, 1);
         assert.strictEqual(countCount, 6);
     }),
 
     it => it('Has sane defaults', () => {
-        const context = new StitchParserContext();
+        const context = new StitchArrayParserContext();
         assert.strictEqual(context._counter.getTotalCount(), 0);
         assert.deepEqual(context._indexLookUp.getIndexLookup(), []);
     })

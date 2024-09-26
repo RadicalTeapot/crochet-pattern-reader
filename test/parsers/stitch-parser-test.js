@@ -3,10 +3,10 @@ import assert from 'assert';
 import { Stitch } from '../../src/models/stitch.js';
 import { StitchParser } from '../../src/parsers/stitch/stitch-parser.js';
 import { StitchCountResolver } from '../../src/utils/stitch-count-resolver.js';
-import { StitchParserContext } from '../../src/parsers/stitch/stitch-parser-context.js'
+import { StitchArrayParserContext } from '../../src/parsers/stitch/stitch-array-parser.js';
 
 function getDefaultStitchParser() {
-    return new StitchParser(new StitchParserContext(), new StitchCountResolver(0));
+    return new StitchParser(new StitchArrayParserContext(), new StitchCountResolver(0));
 }
 
 testSuite('StitchParser',
@@ -29,7 +29,7 @@ testSuite('StitchParser',
     }),
 
     it => it('Uses count resolver to set count', () => {
-        const parser = new StitchParser(new StitchParserContext(), {resolveCount: () => 2});
+        const parser = new StitchParser(new StitchArrayParserContext(), {resolveCount: () => 2});
         const stitch = parser.parse({ type: 'stitch', count: 1, name: 'sc', countModifier: 1 });
         assert.deepStrictEqual(stitch, new Stitch('sc', 2, 1));
     }),

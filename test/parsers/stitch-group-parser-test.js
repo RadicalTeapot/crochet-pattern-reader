@@ -3,12 +3,12 @@ import assert from 'assert';
 import { Stitch } from '../../src/models/stitch.js';
 import { StitchGroup } from '../../src/models/stitch-group.js';
 import { StitchGroupParser } from '../../src/parsers/stitch/stitch-group-parser.js';
-import { StitchParserContext } from '../../src/parsers/stitch/stitch-parser-context.js'
+import { StitchArrayParserContext } from '../../src/parsers/stitch/stitch-array-parser.js';
 import { StitchArrayParser } from '../../src/parsers/stitch/stitch-array-parser.js';
 import { StitchCountResolver } from '../../src/utils/stitch-count-resolver.js';
 
 function getDefaultStitchGroupParser() {
-    return new StitchGroupParser(new StitchParserContext(), new StitchCountResolver(0), new StitchArrayParser());
+    return new StitchGroupParser(new StitchArrayParserContext(), new StitchCountResolver(0), new StitchArrayParser());
 }
 
 testSuite('StitchParser',
@@ -19,7 +19,7 @@ testSuite('StitchParser',
     }),
 
     it => it('Uses count resolver to set count', () => {
-        const parser = new StitchGroupParser(new StitchParserContext(), () => 2, new StitchArrayParser());
+        const parser = new StitchGroupParser(new StitchArrayParserContext(), () => 2, new StitchArrayParser());
         const stitchGroup = parser.parse({ type: 'repeat', count: 1, stitches: [{ type: 'stitch', count: 1, name: 'sc', countModifier: 1 }] });
         assert.deepStrictEqual(stitchGroup, new StitchGroup([new Stitch('sc', 1, 1)], 2));
     }),

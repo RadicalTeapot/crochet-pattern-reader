@@ -8,7 +8,7 @@ export function StitchArrayParserContext(counter, indexLookup) {
     this._counter = counter || new StitchCounter();
     this._indexLookUp = indexLookup || new StitchIndexLookup();
 }
-Object.assign(StitchParserContext.prototype, {
+Object.assign(StitchArrayParserContext.prototype, {
     startGroup: function() {
         this._counter.startGroup();
         this._indexLookUp.startGroup();
